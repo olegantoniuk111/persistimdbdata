@@ -1,6 +1,8 @@
 package ua.vin.persistimdbdata.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -8,6 +10,7 @@ import java.util.Map;
 
 @Entity
 @Table(name = "omdb")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OmdbUnit implements Serializable {
     @Override
     public int hashCode() {
@@ -37,7 +40,7 @@ public class OmdbUnit implements Serializable {
     private String Country;
     private String Awards;
     private String Poster;
-    private Map<String, String> Ratings;
+
     private String Metascore;
 
     private String imdbRating;
@@ -170,13 +173,6 @@ public class OmdbUnit implements Serializable {
         Poster = poster;
     }
 
-    public Map<String, String> getRatings() {
-        return Ratings;
-    }
-
-    public void setRatings(Map<String, String> ratings) {
-        Ratings = ratings;
-    }
 
     public String getMetascore() {
         return Metascore;
