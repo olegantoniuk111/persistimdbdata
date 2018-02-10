@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>index</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <h1>Spring Boot Web Thymeleaf </h1>
-<h1>Spring Boot Web Thymeleaf </h1>
+
+<form  th:action="@{/getImdbData}" th:method="get">
+
+    <p><input th:name="t" th:type="radio" th:value="movie"/>movie</p>
+    <p><input th:name="t" th:type="radio" th:value="series" /> series </p>
+
+    <p>year: <input type="number" th:name="y" min="1950" max="2050"/></p>
+    <p> <input type="text" th:id="apikey" th:name="apikey" th:value="PlzBanMe" th:hidden="true"/></p>
+    <p> <input type="submit"  value="submit"/></p>
+
+</form >
 </body>
 </html>
