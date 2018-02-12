@@ -1,64 +1,66 @@
 package ua.vin.persistimdbdata.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 
-import java.io.Serializable;
-import java.util.Map;
 
 @Entity
 @Table(name = "omdb")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OmdbUnit implements Serializable {
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
+public class OmdbUnit  {
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+    @JsonProperty("Title")
     private String Title;
+    @JsonProperty("Year")
     private String Year;
+    @JsonProperty("Rated")
     private String Rated;
+    @JsonProperty("Released")
     private String Released;
+    @JsonProperty("Runtime")
     private String Runtime;
+    @JsonProperty("Genre")
     private String Genre;
+    @JsonProperty("Director")
     private String Director;
+    //@JsonProperty("OmdbWriter")
     private String Writer;
+    @JsonProperty("Actors")
     private String Actors;
+    @JsonProperty("Plot")
     private String Plot;
+    @JsonProperty("Language")
     private String Language;
+    @JsonProperty("Country")
     private String Country;
+    @JsonProperty("Awards")
     private String Awards;
+    @JsonProperty("Poster")
     private String Poster;
 
+    @JsonProperty("Metascore")
     private String Metascore;
-
+    @JsonProperty("imdbRating")
     private String imdbRating;
+    @JsonProperty("imdbVotes")
     private String imdbVotes;
+    @Id
+    @JsonProperty("imdbID")
     private String imdbID;
-    private String Type;
+    @JsonProperty("DVD")                                                                                                                                                                                                                    private String type;
     private String DVD;
+    @JsonProperty("BoxOffice")
     private String BoxOffice;
+    @JsonProperty("Production")
     private String Production;
+    @JsonProperty("Website")
     private String Website;
+    @JsonProperty("Response")
     private String Response;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
+    public OmdbUnit() {
     }
 
     public String getTitle() {
@@ -174,6 +176,7 @@ public class OmdbUnit implements Serializable {
     }
 
 
+
     public String getMetascore() {
         return Metascore;
     }
@@ -207,11 +210,11 @@ public class OmdbUnit implements Serializable {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public String getDVD() {
@@ -254,7 +257,33 @@ public class OmdbUnit implements Serializable {
         Response = response;
     }
 
-    public OmdbUnit() {
-
+    @Override
+    public String toString() {
+        return "OmdbUnit{" +
+                "Title='" + Title + '\'' +
+                ", Year='" + Year + '\'' +
+                ", Rated='" + Rated + '\'' +
+                ", Released='" + Released + '\'' +
+                ", Runtime='" + Runtime + '\'' +
+                ", Genre='" + Genre + '\'' +
+                ", Director='" + Director + '\'' +
+                ", OmdbWriter='" + Writer + '\'' +
+                ", Actors='" + Actors + '\'' +
+                ", Plot='" + Plot + '\'' +
+                ", Language='" + Language + '\'' +
+                ", Country='" + Country + '\'' +
+                ", Awards='" + Awards + '\'' +
+                ", Poster='" + Poster + '\'' +
+                ", Metascore='" + Metascore + '\'' +
+                ", imdbRating='" + imdbRating + '\'' +
+                ", imdbVotes='" + imdbVotes + '\'' +
+                ", imdbID='" + imdbID + '\'' +
+                ", type='" + type + '\'' +
+                ", DVD='" + DVD + '\'' +
+                ", BoxOffice='" + BoxOffice + '\'' +
+                ", Production='" + Production + '\'' +
+                ", Website='" + Website + '\'' +
+                ", Response='" + Response + '\'' +
+                '}';
     }
 }

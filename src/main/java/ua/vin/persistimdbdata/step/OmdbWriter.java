@@ -6,19 +6,13 @@ import ua.vin.persistimdbdata.model.OmdbUnit;
 import ua.vin.persistimdbdata.model.OmdbUnitRepository;
 import java.util.List;
 
-public class Writer implements ItemWriter<List<OmdbUnit>>{
+public class OmdbWriter implements ItemWriter<OmdbUnit>{
 
     @Autowired
     public OmdbUnitRepository omdbUnitRepository;
 
-    public Writer() {
-    }
-
     @Override
-    public void write(List<? extends List<OmdbUnit>> items) throws Exception {
-
-
-        items.stream().forEach(item ->omdbUnitRepository.save(item));
-
+    public void write(List<? extends OmdbUnit> items) throws Exception {
+        omdbUnitRepository.save(items);
     }
 }

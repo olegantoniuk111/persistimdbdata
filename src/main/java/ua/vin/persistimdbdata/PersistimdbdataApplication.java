@@ -5,9 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.converter.FormHttpMessageConverter;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 @EnableBatchProcessing
@@ -16,9 +21,10 @@ public class PersistimdbdataApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PersistimdbdataApplication.class, args);
 	}
-//	@Bean
-//	public RestTemplate restTemplate(){
-//		return new RestTemplate();
-//	}
+
+	@Bean
+	public RestTemplate restTemplate() {
+	return new RestTemplate();
+	}
 
 }
