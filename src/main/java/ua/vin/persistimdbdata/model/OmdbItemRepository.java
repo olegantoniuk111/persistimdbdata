@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface OmdbUnitRepository extends CrudRepository<OmdbUnit, Long> {
+public interface OmdbItemRepository extends CrudRepository<OmdbItem, Long> {
 
 }
