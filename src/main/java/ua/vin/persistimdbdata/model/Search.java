@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SearchItem implements Serializable {
+public class Search implements Serializable {
 
     @JsonProperty("Search")
     private List<OmdbItem> Search;
@@ -21,7 +21,7 @@ public class SearchItem implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SearchItem that = (SearchItem) o;
+        ua.vin.persistimdbdata.model.Search that = (ua.vin.persistimdbdata.model.Search) o;
         return totalResults == that.totalResults &&
                 Response == that.Response &&
                 Objects.equals(Search, that.Search);
@@ -57,6 +57,6 @@ public class SearchItem implements Serializable {
         Response = response;
     }
 
-    public SearchItem() {
+    public Search() {
     }
 }

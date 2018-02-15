@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -16,13 +17,27 @@ public class OmdbItem implements Serializable {
     private String Title;
     @JsonProperty("Year")
     private String Year;
+
     @Id
     @JsonProperty("imdbID")
     private String imdbID;
+
     @JsonProperty("Type")
     private String Type;
     @JsonProperty("Poster")
     private String Poster;
+
+    @OneToMany(mappedBy = "omdbItem")
+    private List<Season> seasons;
+
+    public List<Season> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<Season> seasons) {
+        this.seasons = seasons;
+    }
+
 
     public OmdbItem() {
     }

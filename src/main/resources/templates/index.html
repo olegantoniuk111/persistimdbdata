@@ -9,10 +9,10 @@
 
 <form  th:action="@{/persistImdbDataToDb}" th:method="get">
 
-    <p>name: <input type="text"   th:name="s" /> </p>
-    <p><input th:name="type" th:type="radio" th:value="movie"/>movie</p>
+    <p>name: <input type="text" th:name="s" required="true" /> </p>
+    <p><input th:name="type" th:type="radio" th:value="movie" required="true"/>movie</p>
     <p><input th:name="type" th:type="radio" th:value="series" /> series </p>
-    <p>year: <input type="number" th:name="y" min="1950" max="2050"/></p>
+    <p>year: <input type="number" th:name="y" required="true"/></p>
     <p> <input type="submit"  value="submit"/></p>
 
 </form >

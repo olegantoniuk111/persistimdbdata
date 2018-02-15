@@ -17,11 +17,7 @@ public class JobLauncherController {
     @Autowired
     public Job job;
 
-    private StringBuilder urlBuilder;
 
-    public String getUrl() {
-        return urlBuilder.toString();
-    }
 
 @GetMapping(value = "/persistImdbDataToDb", params = {"s","type","y"})
 
