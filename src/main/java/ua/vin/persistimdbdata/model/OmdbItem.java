@@ -27,7 +27,7 @@ public class OmdbItem implements Serializable {
     @JsonProperty("Poster")
     private String Poster;
 
-    @OneToMany(mappedBy = "omdbItem")
+    @OneToMany(mappedBy = "omdbItem", cascade = CascadeType.ALL)
     private List<Season> seasons;
 
     public List<Season> getSeasons() {

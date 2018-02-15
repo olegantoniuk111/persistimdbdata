@@ -23,7 +23,7 @@ public class Season implements Serializable {
     @JsonProperty("totalSeasons")
     private int totalSeasons;
 
-    @OneToMany(mappedBy = "season")
+    @OneToMany(mappedBy = "season", cascade = CascadeType.ALL)
     @JsonProperty("Episodes")
     private List<Episode> Episodes;
 

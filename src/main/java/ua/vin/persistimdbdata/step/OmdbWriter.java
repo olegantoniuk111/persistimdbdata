@@ -3,7 +3,8 @@ package ua.vin.persistimdbdata.step;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.vin.persistimdbdata.model.OmdbItem;
-import ua.vin.persistimdbdata.model.OmdbItemRepository;
+import ua.vin.persistimdbdata.repository.OmdbItemRepository;
+
 import java.util.List;
 
 public class OmdbWriter implements ItemWriter <List<OmdbItem>>{
@@ -14,9 +15,10 @@ public class OmdbWriter implements ItemWriter <List<OmdbItem>>{
 
     @Override
     public void write(List<? extends List<OmdbItem>> items) throws Exception {
-        for(List<OmdbItem>units:items){
+        for(List<OmdbItem> units :items){
             try{
                 omdbUnitRepository.save(units);
+
             }catch (Exception e){
                 e.printStackTrace();
             }
