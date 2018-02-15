@@ -15,7 +15,7 @@ public class Season implements Serializable {
     public Season() {
     }
 
-    @Id
+
     @JsonProperty("Title")
     private String Title;
     @JsonProperty("Season")
@@ -29,6 +29,10 @@ public class Season implements Serializable {
 
     @JsonProperty("Response")
     private boolean Response;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name ="imdbID" )

@@ -66,18 +66,15 @@ public class OmdbReader implements ItemReader <List<OmdbItem>> {
 
     private List<OmdbItem> getAllSeasons() {
         for(OmdbItem item: omdbItems){
-
             String id = item.getImdbID();
             int total = 1;
+            List<Season> seasons = new LinkedList<>();
             for(int i=1; i<=total; i++){
                 String url = getSeasonUrl(id, i);
-                ResponseEntity<Season> season = restTemplate.getForEntity(url, Season.class);
-
-                System.out.println(season.getBody().toString());
-                //Season season = response.getBody();
-                //item.getSeasons().add(response.getBody());
-                //total = response.getBody().getTotalSeasons();
+                ResponseEntity<Season> response = restTemplate.getForEntity(url, Season.class);
+                seasons.add(response.getBody());
             }
+            item.setSeasons(seasons);
 
         }
         return omdbItems;
@@ -88,9 +85,4 @@ public class OmdbReader implements ItemReader <List<OmdbItem>> {
     private String getSeasonUrl(String id, int seasonNumber) {
         return SeasonUrl+"&"+"i="+id+"&"+"Season="+seasonNumber;
     }
-
-
-
-
-
 }

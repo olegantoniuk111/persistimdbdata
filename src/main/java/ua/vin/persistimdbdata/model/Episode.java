@@ -21,14 +21,22 @@ public class Episode implements Serializable {
     @JsonProperty("Episode")
     private int Episode;
     @JsonProperty("imdbRating")
-    private int imdbRating;
-    @Id
+    private String imdbRating;
+
     @JsonProperty("imdbID")
     private String imdbID;
 
     @ManyToOne
     @JoinColumn(name = "Season")
     private Season season;
+
+    public Long getId() {
+        return id;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     public Episode() {
     }
@@ -48,7 +56,6 @@ public class Episode implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(Title, Released, Episode, imdbRating, imdbID, season);
     }
 
@@ -76,11 +83,11 @@ public class Episode implements Serializable {
         Episode = episode;
     }
 
-    public int getImdbRating() {
+    public String getImdbRating() {
         return imdbRating;
     }
 
-    public void setImdbRating(int imdbRating) {
+    public void setImdbRating(String imdbRating) {
         this.imdbRating = imdbRating;
     }
 
