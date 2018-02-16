@@ -9,7 +9,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "omdb")
+@Table(name ="omdb")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OmdbItem implements Serializable {
 
@@ -26,6 +26,17 @@ public class OmdbItem implements Serializable {
     private String Type;
     @JsonProperty("Poster")
     private String Poster;
+
+    @JsonProperty("totalSeasons")
+    private int totalSeasons;
+
+    public int getTotalSeasons() {
+        return totalSeasons;
+    }
+
+    public void setTotalSeasons(int totalSeasons) {
+        this.totalSeasons = totalSeasons;
+    }
 
     @OneToMany(mappedBy = "omdbItem", cascade = CascadeType.ALL)
     private List<Season> seasons;

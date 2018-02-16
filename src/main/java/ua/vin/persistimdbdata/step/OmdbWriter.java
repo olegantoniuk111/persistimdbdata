@@ -14,15 +14,9 @@ public class OmdbWriter implements ItemWriter <List<OmdbItem>>{
 
 
     @Override
-    public void write(List<? extends List<OmdbItem>> items) throws Exception {
+    public void write(List<? extends List<OmdbItem>> items){
         for(List<OmdbItem> units :items){
-            try{
-                omdbUnitRepository.save(units);
-
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-
+            omdbUnitRepository.save(units);
         }
     }
 }

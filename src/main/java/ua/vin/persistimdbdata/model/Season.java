@@ -14,8 +14,6 @@ import java.util.Objects;
 public class Season implements Serializable {
     public Season() {
     }
-
-
     @JsonProperty("Title")
     private String Title;
     @JsonProperty("Season")
